@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { createActions } from './store'
@@ -46,7 +46,9 @@ const Header = (props) => {
 }
 const mapStateToProps = (state) => {
   return {
-    focused: state.header.get('focused')
+    // focused: state.get('header').get('focused')
+    // 下面这种方法也可以
+    focused: state.getIn(['header', 'focused'])
   }
 }
 
