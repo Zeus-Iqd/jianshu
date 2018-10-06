@@ -10,8 +10,33 @@ import {
   NavSearch,
   Addition,
   Button,
-  SearchWrapper
+  SearchWrapper,
+  SearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoItem
 } from './style'
+const getListArea = (show) => {
+  console.log(show, 'showwwwwwwwwwwwwwwwwwwwww')
+  if (show) {
+    return (
+      <SearchInfo>
+        <SearchInfoTitle>
+          热门搜索
+        <SearchInfoSwitch>换一换</SearchInfoSwitch>
+        </SearchInfoTitle>
+        <div>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+        </div>
+      </SearchInfo>
+    )
+  }
+}
 const Header = (props) => {
   const { focused, handleFocus, handleBlur } = props
   return (
@@ -32,6 +57,7 @@ const Header = (props) => {
             <NavSearch onFocus={handleFocus} onBlur={handleBlur} className={focused ? 'focused' : ''}></NavSearch>
           </CSSTransition>
           <i className="iconfont">&#xe614;</i>
+          {getListArea(focused)}
         </SearchWrapper>
       </Nav>
       <Addition>

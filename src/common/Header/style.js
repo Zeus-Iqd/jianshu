@@ -91,6 +91,37 @@ font-size: 14px;
   }
 }
 `
+const SearchInfo = styled.div`
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+`
+const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`
+const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 14px;
+`
+const SearchInfoItem = styled.a`
+  float:left;
+  line-height:20px;
+  padding: 0 5px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  color: #787878;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+`
 const Addition = styled.div`
   position: absolute;
   top: 0;
@@ -128,5 +159,9 @@ export {
   NavSearch,
   Addition,
   Button,
-  SearchWrapper
+  SearchWrapper,
+  SearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoItem
 }
