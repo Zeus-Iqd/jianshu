@@ -11,28 +11,43 @@ const searchBlurAction = () => {
     type: actionTypes.SEARCH_BLUR
   }
 }
+const mouseEnter = () => {
+  return {
+    type: actionTypes.MOUSE_ENTER
+  }
+}
+const changePage = (page) => {
+  return {
+    type: actionTypes.CHANGE_PAGE,
+    page
+  }
+}
+const mouseLeave = () => {
+  return {
+    type: actionTypes.MOUSE_LEAVE
+  }
+}
 const changeList = (data) => {
   console.log(data, 'changeList')
   return {
     type: actionTypes.CHAGNE_LIST,
-    data: fromJS(data)
+    data: fromJS(data),
+    totalPage: Math.ceil(data.length / 10)
   }
 }
 const getList = () => {
-  return (dispatch) => {
-    console.log(8888)
-    axios.get('/api/headerList.json').then((res) => {
-      const data = res.data
-      dispatch(changeList(data.data))
-    }).catch((error) => {
-
-    })
+  return async (dispatch) => {
+    const res = await axios.get('/api/headerList.json')
+    const data = res.data
+    dispatch(changeList(data.data))
   }
 }
-
 
 export {
   searchFoucusAction,
   searchBlurAction,
-  getList
+  getList,
+  mouseEnter,
+  mouseLeave,
+  changePage
 }
